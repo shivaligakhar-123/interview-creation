@@ -2,7 +2,7 @@
 // Configuring Mongo DB
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb://localhost/to_do_dark_mode');
+mongoose.connect('mongodb://localhost/to_do_dark_mode',{ useNewUrlParser: true });
 
 const db=mongoose.connection;
 

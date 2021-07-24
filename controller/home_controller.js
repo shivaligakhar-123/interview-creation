@@ -1,5 +1,5 @@
 const Item = require("../models/newitem");
-
+const taskMailer = require("../mailers/sendmail")
 console.log("Controller is Working")
 
 
@@ -20,31 +20,41 @@ module.exports.home= function (req, res) {
 }
 
 // Controller for Creating Task
-module.exports.createList = function (req, res) {
-  Item.create({
-    startDate: req.body.startDate,
-    endDate: req.body.endDate,
-    startTime: req.body.startTime,
-    endTime: req.body.endTime,
-    description: req.body.description,
-    name_interviewer: req.body.name_interviewer,
-    name_student: req.body.name_student,
-    mailid_interviewer: req.body.mailid_interviewer,
-    mailid_student: req.body.mailid_student,
+module.exports.createList = async function (req, res) {
+    try{
+      await Item.create({
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        description: req.body.description,
+        name_interviewer: req.body.name_interviewer,
+        name_student: req.body.name_student,
+        mailid_interviewer: req.body.mailid_interviewer,
+        mailid_student: req.body.mailid_student,
+    
+        flag: true
+      });
+      taskMailer.newTask(req.body);
 
-    flag: true
-  }, function (err, newContact) {
 
-    if (err) {
-      console.log('List cannot be Created');
-      return;
+  
+  return res.redirect('back');
+      
+
+    
     }
-
-    return res.redirect('back');
+    catch(err){
+        console.log('Error',err);
+        return;
+    }
+    
   }
-  )
-  // return res.end("<h1>Hello There</h1>")
-}
+
+//   module.exports.createSession = function(req, res){
+//     req.flash('success', 'Task created successfully');
+//     return res.redirect('/',{flash:{success:"Task created successfully"}});
+// }
 
 // Controller for Deleting Task
 module.exports.DeleteList = function (req, res) {
