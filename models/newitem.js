@@ -11,6 +11,7 @@ const listSchema=new mongoose.Schema({
   name_student:String,
   mailid_interviewer: String,
   mail_id_student:String,
+  googleId:String,
   isDone: Boolean
 
 
