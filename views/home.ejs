@@ -28,15 +28,12 @@
                 
                 <div class="bor-bot flex">
                     <!-- Datepicker -->
-                    <div class="due-date">
-                            <label for="date"><p>Start Date</p></label>
+                    <div class="desc">
+                            <label for="date"><p>Date</p></label>
                             <input class="unstyled" type="date" name="startDate" required="required" id="datepicker" min="2021-07-24">
                     </div>
                     
-                    <div class="due-date">
-                        <label for="date"><p>End Date</p></label>
-                        <input class="unstyled" type="date" name="endDate" required="required" id="datepicker" min="2021-07-24">
-                    </div>
+                    
                     
                    
                 </div>
@@ -91,10 +88,10 @@
 
             <!-- Display and Deletion of a Task -->
             <div class="list">
-                <form action="/delete-task" method="POST" >
+                <form name = "Form1" method = "POST">
                     <!-- Deletion -->
                     <div class="del-but">
-                        <button type="submit" id="add-task" ><i class="fas fa-trash-alt"></i> Cancel Interview </button>
+                        <button type="submit" onclick = "OnButton1()" id="add-task" ><i class="fas fa-trash-alt"></i> Cancel Interview </button>
                     </div>
                     <!-- Display -->
                     <% for(let i of list){ %>
@@ -103,18 +100,67 @@
                         <span>
                             <h3 id="strike"><%= i.name_interviewer %> x <%= i.name_student %></h3>
                             <p id="strike2"><i class="far fa-calendar-alt"></i> <%= i.startDate %>, <%= i.startTime %></p>
-                            <div onclick="fn1()" id="shift" class="display">Mark Done</div>
+                            <div type="submit" id="" onclick="openForm()"><i class="fas fa-edit"></i></div>
                         </span>
                     </div>
+                    <div class="form-popup" id="myForm">                
+                        <div class="bor-bot flex">
+                            <!-- Datepicker -->
+                            <div class="desc">
+                                    <label for="date"><p>Date</p></label>
+                                    <input class="unstyled" type="date" name="startDate_c" required="required" id="datepicker" min="2021-07-24">                          
+                            </div> 
+                        </div>
+                        <div class="bor-bot flex">
+                            <!-- Datepicker -->
+                            
+                            <div class="due-date">
+                                <label for="appt"><p>Start Time:</p></label>
+                                <input type="time" id="appt" name="startTime_c">
+                            </div>
+                            <div class="due-date">
+                                <label for="appt"><p>End Time:</p></label>
+                                <input type="time" id="appt" name="endTime_c">
+                            </div>
+                           
+                        </div>
+                        <!-- Description Form -->
+                        <div class="bor-bot">                
+                            <div>
+                                <label for="description"><p>Description</p></label>
+                            </div>
+                            <div class="desc">
+                                <input type="text" placeholder="What is this interview about?" name="description_c" required="required" id="description">
+                            </div>
+                        </div>                
+        
+                        <!-- Submitting the Form -->
+                        <div class="bor-bot add-but">
+                            <button type="submit" class="btn" onclick = "OnButton2()" >Edit Task</button>
+                            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                        </div>
+                    </div>
                     <% } %>
+
                 </form>
+                
 
             </div>
+            <!-- Editing a task -->
+
         
 
     </div>
 
     <script src="/js/index.js"></script>
+    <script>function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
 
 </body>
 </html>

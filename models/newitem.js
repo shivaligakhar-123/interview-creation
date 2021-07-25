@@ -2,8 +2,7 @@ const mongoose=require('mongoose');
 
 // Designing Schema for Database
 const listSchema=new mongoose.Schema({
-  startDate: String,
-  endDate: String,
+  startDate: { type: Date, default: Date.now },
   startTime: String,
   endTime: String,
   description: String,
@@ -11,8 +10,7 @@ const listSchema=new mongoose.Schema({
   name_student:String,
   mailid_interviewer: String,
   mail_id_student:String,
-  googleId:String,
-  isDone: Boolean
+  isCompleted: { type: Boolean, default: false }
 
 
 })

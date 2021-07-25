@@ -15,8 +15,8 @@ router.post('/create-list',homeController.createList);
 //   });
   
 router.post('/delete-task',homeController.DeleteList);
-// router.post('/sendemail',function(req,res,next){
+router.post('/edit-list',homeController.EditList);
 
-// });
+
 
 module.exports = router;

@@ -24,9 +24,8 @@ module.exports.createList = async function (req, res) {
     try{
       await Item.create({
         startDate: req.body.startDate,
-        endDate: req.body.endDate,
         startTime: req.body.startTime,
-        endTime: req.body.endTime,
+        endTime : req.body.endTime,
         description: req.body.description,
         name_interviewer: req.body.name_interviewer,
         name_student: req.body.name_student,
@@ -69,5 +68,25 @@ module.exports.DeleteList = function (req, res) {
 
     })
   }
+  return res.redirect('back');
+}
+
+// Controller to edit things
+module.exports.EditList = function (req, res) {
+      console.log(req.body);
+      
+      Item.findByIdAndUpdate(req.body[Object.keys(req.body)[0]], {
+        startDate: req.body.startDate_c,
+        startTime: req.body.startTime_c,
+        endTime : req.body.endTime_c,
+        description: req.body.description_c
+    },function (err) {
+      if (err) {
+        console.log('Error in Editing the item'); 
+        return;
+      }
+
+    })
+  
   return res.redirect('back');
 }

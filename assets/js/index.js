@@ -43,3 +43,18 @@ function fn1(){
 
 }
 
+function OnButton1()
+{
+    document.Form1.action = "/delete-task"
+    document.Form1.target = "_blank";    // Open in a new window
+    document.Form1.submit();             // Submit the page
+    return true;
+}
+
+function OnButton2()
+{
+    document.Form1.action = "/edit-list"
+    document.Form1.target = "_blank";    // Open in a new window
+    document.Form1.submit();             // Submit the page
+    return true;
+}
