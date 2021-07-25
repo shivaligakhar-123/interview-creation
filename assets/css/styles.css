@@ -212,6 +212,15 @@ button:hover
 }
 
 
+.marg-r
+{
+    margin-right: -41px !important;
+}
+
+.marg-ten
+{
+    margin-right: 10px !important;
+}
 
 .item p
 {
@@ -303,6 +312,8 @@ button:hover
 	width: 12px;
 	background-color: #1f1f1f;
 }
+
+
 
 #style-1::-webkit-scrollbar-thumb
 {
@@ -411,6 +422,8 @@ button:hover
     right: 15px;
     border: 3px solid #f1f1f1;
     z-index: 9;
+    background: #1f1f1f;
+    width: 50%;
   }
   
   /* Add styles to the form container */
@@ -455,3 +468,4 @@ button:hover
   /* Add some hover effects to buttons */
   .form1-container .btn:hover, .open-button:hover {
     opacity: 1;
+
