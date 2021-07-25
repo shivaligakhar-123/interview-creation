@@ -227,6 +227,12 @@ button:hover
     font-size: 16px;
 }
 
+.edit_button
+{
+    font-size: 12px;
+    display: flex;
+}
+
 .display
 {
     height: 27px;
