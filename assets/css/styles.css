@@ -40,6 +40,7 @@ p
 {
     background-color: #1f1f1f;
     margin: auto;
+    margin-top: 2% !important;
     height: 730px;
     width: 60%;
     text-align: center;

@@ -59,14 +59,16 @@ module.exports.createList = async function (req, res) {
 module.exports.DeleteList = function (req, res) {
   console.log(req.body);
   for(let i in req.body){
-    console.log(i);
-     Item.findByIdAndDelete(req.body[i], function (err) {
-      if (err) {
-        console.log('Error in Deleting the item'); 
-        return;
+      console.log(i);
+      if (i.startsWith('check'))
+      {
+        Item.findByIdAndDelete(req.body[i], function (err) {
+          if (err) {
+            console.log('Error in Deleting the item'); 
+            return;
+          }    
+        })
       }
-
-    })
   }
   return res.redirect('back');
 }
