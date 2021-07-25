@@ -95,14 +95,15 @@
                     </div>
                     <!-- Display -->
                     <% for(let i of list){ %>
-                    <div class="item hvr-grow ">
-                        <input type="checkbox" value="<%= i._id %>" name="check<%= i._id %>" class="check">
-                        <span>
-                            <h3 id="strike"><%= i.name_interviewer %> x <%= i.name_student %></h3>
-                            <p id="strike2"><i class="far fa-calendar-alt"></i> <%= i.startDate %>, <%= i.startTime %></p>
-                            <div type="submit" class="edit_button" onclick="openForm()"><i class="fas fa-edit"></i></div>
-                        </span>
-                    </div>
+                        <div class="item hvr-grow ">
+                            <input type="checkbox" value="<%= i._id %>" name="check<%= i._id %>" class="check">
+                            <span>
+                                <h3 id="strike"><%= i.name_interviewer %> x <%= i.name_student %></h3>
+                                <p id="strike2"><i class="far fa-calendar-alt"></i> <%= i.startDate %>, <%= i.startTime %></p>
+                                <div type="submit" class="edit_button" onclick="openForm('<%= i._id %>')"><i class="fas fa-edit"></i></div>
+                            </span>
+                        </div>
+                    <% } %>
                     <div class="form-popup" id="myForm">                
                         <div class="bor-bot flex">
                             <!-- Datepicker -->
@@ -122,7 +123,7 @@
                                 <label for="appt"><p>End Time:</p></label>
                                 <input type="time" class = "marg-r" id="appt" name="endTime_c">
                             </div>
-                           
+                        
                         </div>
                         <!-- Description Form -->
                         <div class="bor-bot">                
@@ -133,14 +134,15 @@
                                 <input type="text" placeholder="What is this interview about?" name="description_c" required="required" id="description">
                             </div>
                         </div>                
+
+                        <input type = "hidden" id = "editss" name = "edit_id">
         
                         <!-- Submitting the Form -->
                         <div class="bor-bot add-but">
-                            <button type="submit" class="btn marg-ten" onclick = "OnButton2()" >Edit Task</button>
+                            <button type="submit" class="btn marg-ten" onclick = "onEdits()" >Edit Task</button>
                             <button type="submit" class="btn cancel marg-ten" onclick="closeForm()">Close</button>
                         </div>
                     </div>
-                    <% } %>
 
                 </form>
                 
@@ -153,13 +155,25 @@
     </div>
 
     <script src="/js/index.js"></script>
-    <script>function openForm() {
-        document.getElementById("myForm").style.display = "block";
-      }
-      
-      function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-      }
+    <script>
+        var current_id;
+
+
+        function openForm(id) {
+            current_id = id;
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function onEdits()
+        {
+            document.getElementById("editss").value = current_id;
+            OnButton2();
+        }
+        
+        function closeForm() {
+            current_id = null;
+            document.getElementById("myForm").style.display = "none";
+        }
     </script>
 
 </body>

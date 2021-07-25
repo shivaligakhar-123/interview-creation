@@ -74,8 +74,7 @@ module.exports.DeleteList = function (req, res) {
 // Controller to edit things
 module.exports.EditList = function (req, res) {
       console.log(req.body);
-      
-      Item.findByIdAndUpdate(req.body[Object.keys(req.body)[0]], {
+      Item.findByIdAndUpdate(req.body['edit_id'], {
         startDate: req.body.startDate_c,
         startTime: req.body.startTime_c,
         endTime : req.body.endTime_c,
