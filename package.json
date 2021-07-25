@@ -1,13 +1,13 @@
 {
-  "name": "to-do-dark",
+  "name": "interview-creation-dark",
   "version": "1.0.0",
-  "description": "To-Do list Dark Mode",
+  "description": "Interview Scheduling app-Dark Mode",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Gaurav Bhatia",
+  "author": "Shivali Gakhar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
