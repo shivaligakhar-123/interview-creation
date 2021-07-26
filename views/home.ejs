@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-    <script src="../google_calender.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"> 
     <link rel="stylesheet" href="/css/styles.css">
     
@@ -99,7 +98,7 @@
                             <input type="checkbox" value="<%= i._id %>" name="check<%= i._id %>" class="check">
                             <span>
                                 <h3 id="strike"><%= i.name_interviewer %> x <%= i.name_student %></h3>
-                                <p id="strike2"><i class="far fa-calendar-alt"></i> <%= i.startDate %>, <%= i.startTime %></p>
+                                <p id="strike2"><i class="far fa-calendar-alt"></i> <%= i.startDate %>, <%= i.startTime %>-<%= i.endTime %></p>
                                 <div type="submit" class="edit_button" onclick="openForm('<%= i._id %>')"><i class="fas fa-edit"></i></div>
                             </span>
                         </div>

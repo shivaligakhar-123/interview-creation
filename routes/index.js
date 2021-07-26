@@ -16,6 +16,8 @@ router.post('/create-list',homeController.createList);
   
 router.post('/delete-task',homeController.DeleteList);
 router.post('/edit-list',homeController.EditList);
+router.get('/show/:id',homeController.Showlist);
+// the base url runs many params hence to shift away from the base urls multiple params, I changed inteview details link to /show/:id
 
 
 
